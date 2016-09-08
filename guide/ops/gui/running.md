@@ -29,17 +29,18 @@ $ bin/brooklyn launch
 
 Please refer to the [Server CLI Reference](../server-cli-reference.html) for details of other possible command line options.
 
-Brooklyn will output the address of the management interface:
+Brooklyn will output the address of the management interface. If no security was configured, it will
+also write out an auto-generated password. For example:
 
 <pre>
-INFO  No security provider options specified. ...
-INFO  Starting Brooklyn web-console with passwordless access on localhost ...
-INFO  Starting brooklyn web-console on loopback interface because no security config is set
-INFO  Started Brooklyn console at http://127.0.0.1:8081/, running classpath://brooklyn.war
+INFO  No security provider options specified. Define a security provider or users to prevent a random password being created and logged.
+INFO  Allowing access to web console with auto-generated credentials brooklyn:sRIEcy4xAl
+INFO  Started Brooklyn console at http://127.0.0.1:8081/, running classpath://brooklyn.war@
 </pre>
 
 _Notice! Before launching Apache Brooklyn, please check the `date` on the local machine.
 Even several minutes before or after the actual time could cause problems._
+
 
 ## Connect with Browser
 

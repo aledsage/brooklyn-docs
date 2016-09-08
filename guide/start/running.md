@@ -230,10 +230,18 @@ Apache Brooklyn has a web console which can be used to control the application. 
 address of the management interface:
 
 <pre>
-INFO  Started Brooklyn console at http://127.0.0.1:8081/, running classpath://brooklyn.war
+INFO  Started Brooklyn console at http://127.0.0.1:8081/, running classpath://brooklyn.war@
 </pre>
 
 By default it can be accessed by opening [127.0.0.1:8081](http://127.0.0.1:8081){:target="_blank"} in your web browser.
+
+If no security is configured (e.g. LDAP integration or users), a login password will be 
+auto-generated and logged:
+
+<pre>
+INFO  No security provider options specified. Define a security provider or users to prevent a random password being created and logged.
+INFO  Allowing access to web console with auto-generated credentials brooklyn:sRIEcy4xAl
+</pre>
 
 The rest of this getting started guide uses the Apache Brooklyn command line interface (CLI) tool, `br`. 
 This tool is both distributed with Apache Brooklyn or can be downloaded {% if site.brooklyn-version contains 'SNAPSHOT' %}

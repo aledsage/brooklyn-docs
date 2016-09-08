@@ -11,22 +11,30 @@ already running Brooklyn Server, refer to [Client CLI Reference](cli/index.html)
 To launch Brooklyn, from the directory where Brooklyn is unpacked, run:
 
 {% highlight bash %}
-% nohup bin/brooklyn launch > /dev/null 2>&1 &
+% nohup ./bin/brooklyn launch > /dev/null 2>&1 &
 {% endhighlight %}
 
 With no configuration, this will launch the Brooklyn web console and REST API on [`http://localhost:8081/`](http://localhost:8081/).
-No password is set, but the server is listening only on the loopback network interface for security.
-Once [security is configured](brooklyn_properties.html), Brooklyn will listen on all network interfaces by default.
-By default, Brooklyn will write log messages at the INFO level or above to `brooklyn.info.log` and messgages at the
+Brooklyn will listen on all network interfaces by default. An auto-generated password will be logged, such as:
+
+{% highlight bash %}
+INFO  No security provider options specified. Define a security provider or users to prevent a random password being created and logged.
+INFO  Allowing access to web console with auto-generated credentials brooklyn:sRIEcy4xAl
+INFO  Started Brooklyn console at http://127.0.0.1:8081/, running classpath://brooklyn.war@
+{% endhighlight %}
+
+Once [security is configured](brooklyn_properties.html), no password will be auto-generated or logged.
+
+By default, Brooklyn will write log messages at the INFO level or above to `brooklyn.info.log` and messages at the
 DEBUG level or above to `brooklyn.debug.log`. Redirecting the output to `/dev/null` prevents the default console output
 being written to `nohup.out`.
 
 You may wish to [add Brooklyn to your path](#path-setup);
-assuming you've done this, to get information the supported CLI options 
+assuming you've done this, to get information about the supported CLI options 
 at any time, just run `brooklyn help`:
 
 {% highlight bash %}
-% bin/brooklyn help
+% ./bin/brooklyn help
 
 usage: brooklyn [(-q | --quiet)] [(-v | --verbose)] <command> [<args>]
 
